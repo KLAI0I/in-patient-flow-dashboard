@@ -7,7 +7,7 @@
   <title>Inpatient Patient-Flow Dashboard</title>
   <style>
 :root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#697386;--line:#e3e8ef;--primary:#1769aa;--success:#dff8e6;--danger:#ffe2e2;--danger-ink:#9d1c1c;--warn:#fff2cc;--shadow:0 10px 30px rgba(18,38,63,.08)}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}main{max-width:1500px;margin:auto;padding:18px}.hidden{display:none!important}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px}.app-header{display:grid;grid-template-columns:220px 1fr 220px;align-items:center;gap:16px;padding:16px 24px;background:linear-gradient(135deg,#0f4c81,#1680b8);color:white;position:sticky;top:0;z-index:10}.header-title{text-align:center}.header-title h1{margin:0;font-size:28px;font-weight:900}.header-title p{margin:4px 0 0;opacity:.95}.brand-logo{height:72px;display:flex;align-items:center;justify-content:center}.brand-logo img{max-height:68px;max-width:190px}.brand-logo span{display:flex;border:2px solid rgba(255,255,255,.65);border-radius:14px;padding:12px 16px;font-weight:800;background:rgba(255,255,255,.12)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}main{max-width:1500px;margin:auto;padding:18px}.hidden{display:none!important}.loading.hidden{display:none!important}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px}.app-header{display:grid;grid-template-columns:220px 1fr 220px;align-items:center;gap:16px;padding:16px 24px;background:linear-gradient(135deg,#0f4c81,#1680b8);color:white;position:sticky;top:0;z-index:10}.header-title{text-align:center}.header-title h1{margin:0;font-size:28px;font-weight:900}.header-title p{margin:4px 0 0;opacity:.95}.brand-logo{height:72px;display:flex;align-items:center;justify-content:center}.brand-logo img{max-height:68px;max-width:190px}.brand-logo span{display:flex;border:2px solid rgba(255,255,255,.65);border-radius:14px;padding:12px 16px;font-weight:800;background:rgba(255,255,255,.12)}
 footer{text-align:center;padding:18px;color:#475569;font-weight:700}.login-panel{max-width:650px;margin:60px auto}.topbar{display:grid;grid-template-columns:180px 1fr 150px 130px 160px repeat(4,auto);gap:10px;align-items:center;position:sticky;top:104px;z-index:9}.user-chip{display:flex;flex-direction:column;background:#eef6ff;border-radius:12px;padding:8px 10px}input,select,textarea,button{font:inherit;border-radius:12px;border:1px solid #cbd5e1;padding:10px;background:white}textarea{min-height:64px;resize:vertical}button{cursor:pointer;font-weight:800;border:0;background:#e2e8f0}button.primary{background:var(--primary);color:white}button.secondary{background:#475569;color:white}button.warning{background:#d97706;color:white}button.danger{background:#b91c1c;color:white}.summary-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:12px;margin:16px 0}.metric{padding:14px;border-radius:16px;background:white;border:1px solid var(--line);box-shadow:var(--shadow)}.metric .value{font-size:26px;font-weight:900;margin-top:8px}.metric .label{color:var(--muted);font-size:13px}.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}.bar-row{display:grid;grid-template-columns:130px 1fr 70px;gap:10px;align-items:center;margin:10px 0}.bar-track{height:18px;background:#e5e7eb;border-radius:99px;overflow:hidden}.bar-fill{height:100%;background:linear-gradient(90deg,#1769aa,#23a6d5)}.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}.form-grid{display:grid;gap:10px}.form-grid.two{grid-template-columns:repeat(2,1fr)}.form-grid.five{grid-template-columns:repeat(5,1fr);align-items:end}.form-grid label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#475569;font-weight:700}.wide{grid-column:1/-1}.section-title{display:flex;justify-content:space-between;align-items:center}.bed-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}.area-group{grid-column:1/-1;margin-top:12px;font-size:18px;font-weight:900;color:#0f4c81}.bed-card{border-radius:18px;border:1px solid var(--line);padding:14px;box-shadow:var(--shadow);position:relative;min-height:150px}.bed-card.vacant{background:var(--success)}.bed-card.occupied{background:var(--danger)}.bed-card h3{margin:0 0 8px;font-size:20px}.pill{display:inline-flex;padding:5px 10px;border-radius:99px;font-size:12px;font-weight:900;background:white}.occupied .pill{color:var(--danger-ink)}.bed-meta{font-size:13px;line-height:1.55}.toast{position:fixed;right:18px;bottom:18px;background:#111827;color:white;padding:13px 16px;border-radius:14px;box-shadow:var(--shadow);display:none;z-index:99}.loading{position:fixed;inset:0;background:rgba(255,255,255,.65);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;z-index:90}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;margin-top:12px}.table th,.table td{border:1px solid var(--line);padding:8px;text-align:left;font-size:13px}.table th{background:#f8fafc}
 @media(max-width:1100px){.app-header{grid-template-columns:1fr}.brand-logo{height:auto}.topbar,.summary-grid,.charts-grid,.action-grid,.form-grid.five{grid-template-columns:1fr}.form-grid.two{grid-template-columns:1fr}.topbar{position:static}.summary-grid{grid-template-columns:repeat(2,1fr)}}
 @media print{@page{size:A4 landscape;margin:8mm}body{background:white}.no-print,.login-panel,.toast,.loading{display:none!important}.app-header{position:static;color:#111;background:white;border-bottom:2px solid #111;padding:8px;grid-template-columns:160px 1fr 160px}.brand-logo span{color:#111;border-color:#111;background:white}.header-title h1{font-size:18px}.header-title p{font-size:12px}.summary-grid{grid-template-columns:repeat(4,1fr);gap:6px}.metric,.card,.bed-card{box-shadow:none;break-inside:avoid;border:1px solid #777}.bed-grid{grid-template-columns:repeat(4,1fr);gap:6px}.bed-card{min-height:105px;padding:8px}.bed-card h3{font-size:14px}.bed-meta{font-size:10px}.charts-grid{grid-template-columns:1fr 1fr}.section-title h2{font-size:16px}footer{position:fixed;bottom:0;left:0;right:0;font-size:10px;padding:3px}}
@@ -222,8 +222,19 @@ if (!IS_APPS_SCRIPT) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  setLogos();
-  google.script.run.withSuccessHandler(handleInitial).withFailureHandler(showError).getInitialData();
+  try {
+    setLogos();
+    showLoading(false);
+    if (!IS_APPS_SCRIPT) {
+      const res = DEMO_SERVER.getInitialData();
+      handleInitial(res);
+      toast('GitHub preview mode: login with any username/password. Live saving works only on Apps Script /exec URL.');
+      return;
+    }
+    google.script.run.withSuccessHandler(res => { showLoading(false); handleInitial(res); }).withFailureHandler(showError).getInitialData();
+  } catch (e) {
+    showError(e);
+  }
 });
 
 function setLogos(){
@@ -231,12 +242,38 @@ function setLogos(){
   if(APP.logoRightUrl) document.querySelector('#rightLogo img').src = APP.logoRightUrl;
 }
 function handleInitial(res){ if(!res.ok) return showError(res.error); APP.data=res.data.dashboard; APP.lookups=res.data.lookups; populateLookups(); renderDashboard(APP.data); }
-function loginUser(){ showLoading(true); google.script.run.withSuccessHandler(res=>{ showLoading(false); if(!res.ok) return showError(res.error); APP.user=res.data; document.getElementById('loginPanel').classList.add('hidden'); document.getElementById('dashboardPanel').classList.remove('hidden'); document.getElementById('userName').textContent=APP.user.nurseName; document.getElementById('userRole').textContent=APP.user.role; startAutoRefresh(); refreshDashboard(); }).withFailureHandler(showError).login(val('loginUsername'), val('loginPassword')); }
+function loginUser(){
+  showLoading(true);
+  const finishLogin = (res) => {
+    showLoading(false);
+    if(!res.ok) return showError(res.error);
+    APP.user=res.data;
+    document.getElementById('loginPanel').classList.add('hidden');
+    document.getElementById('dashboardPanel').classList.remove('hidden');
+    document.getElementById('userName').textContent=APP.user.nurseName;
+    document.getElementById('userRole').textContent=APP.user.role;
+    startAutoRefresh();
+    refreshDashboard();
+  };
+  if (!IS_APPS_SCRIPT) {
+    setTimeout(() => finishLogin(DEMO_SERVER.login(val('loginUsername'), val('loginPassword'))), 100);
+    return;
+  }
+  google.script.run.withSuccessHandler(finishLogin).withFailureHandler(showError).login(val('loginUsername'), val('loginPassword'));
+}
 function logout(){ APP.user=null; stopAutoRefresh(); document.getElementById('dashboardPanel').classList.add('hidden'); document.getElementById('loginPanel').classList.remove('hidden'); }
-function startAutoRefresh(){ stopAutoRefresh(); APP.refreshTimer=setInterval(refreshDashboard,3000); }
+function startAutoRefresh(){ stopAutoRefresh(); APP.refreshTimer=setInterval(refreshDashboard, IS_APPS_SCRIPT ? 3000 : 15000); }
 function stopAutoRefresh(){ if(APP.refreshTimer) clearInterval(APP.refreshTimer); }
 function debouncedRefresh(){ clearTimeout(APP.debounce); APP.debounce=setTimeout(refreshDashboard,300); }
-function refreshDashboard(){ google.script.run.withSuccessHandler(res=>{ if(!res.ok) return showError(res.error); APP.data=res.data; renderDashboard(APP.data); }).withFailureHandler(showError).getDashboardData(getFilters()); }
+function refreshDashboard(){
+  if (!IS_APPS_SCRIPT) {
+    const res = DEMO_SERVER.getDashboardData(getFilters());
+    if(!res.ok) return showError(res.error);
+    APP.data=res.data; renderDashboard(APP.data);
+    return;
+  }
+  google.script.run.withSuccessHandler(res=>{ showLoading(false); if(!res.ok) return showError(res.error); APP.data=res.data; renderDashboard(APP.data); }).withFailureHandler(showError).getDashboardData(getFilters());
+}
 function getFilters(){ return { search:val('searchInput'), area:val('areaFilter'), status:val('statusFilter'), nurse:val('nurseFilter') }; }
 function populateLookups(){
   fillSelect('areaFilter', APP.lookups.Areas, 'All areas'); fillSelect('admitArea', APP.lookups.Areas, 'Select area');
@@ -257,9 +294,22 @@ function filterAdmitBeds(){ if(!APP.data) return; const area=val('admitArea'); c
 function submitAdmission(e){ e.preventDefault(); if(!APP.user) return showError('Login is required.'); const p={mrn:val('admitMrn'),bedId:val('admitBed'),assignedNurse:val('admitNurse'),notes:val('admitNotes'),createdBy:APP.user.username,role:APP.user.role}; runAction('admitPatient',p,'Admission saved.'); }
 function submitTransfer(e){ e.preventDefault(); if(!confirm('Confirm patient movement/transfer?')) return; const p={mrn:val('moveMrn'),movementType:val('movementType'),toBedId:val('toBed'),destination:val('moveDestination'),notes:val('moveNotes'),createdBy:APP.user.username,role:APP.user.role}; runAction('transferPatient',p,'Movement saved.'); }
 function submitDischarge(e){ e.preventDefault(); if(!confirm('Confirm discharge? Bed will become vacant immediately.')) return; const p={mrn:val('dischargeMrn'),dischargeType:val('dischargeType'),dischargeDestination:val('dischargeDestination'),finalOutcome:val('finalOutcome'),notes:val('dischargeNotes'),createdBy:APP.user.username,role:APP.user.role}; runAction('dischargePatient',p,'Discharge saved.'); }
-function runAction(fn,p,msg){ showLoading(true); google.script.run.withSuccessHandler(res=>{ showLoading(false); if(!res.ok) return showError(res.error); toast(res.data.message||msg); APP.data=res.data.dashboard; renderDashboard(APP.data); }).withFailureHandler(showError)[fn](p); }
-function searchJourney(){ const mrn=val('historyMrn'); if(!mrn) return showError('MRN is required.'); google.script.run.withSuccessHandler(res=>{ if(!res.ok) return showError(res.error); renderTable('journeyResult', res.data.timeline); }).withFailureHandler(showError).searchPatientJourney(mrn); }
-function downloadCsvReport(type){ const params={type, filters:getFilters(), mrn:val('historyMrn'), startDate:val('reportStart'), endDate:val('reportEnd')}; google.script.run.withSuccessHandler(res=>{ if(!res.ok) return showError(res.error); downloadCsv(res.data.rows, `${type}_report_${new Date().toISOString().slice(0,10)}.csv`); }).withFailureHandler(showError).getReportData(params); }
+function runAction(fn,p,msg){
+  showLoading(true);
+  const done = (res) => { showLoading(false); if(!res.ok) return showError(res.error); toast(res.data.message||msg); APP.data=res.data.dashboard; renderDashboard(APP.data); };
+  if (!IS_APPS_SCRIPT) { setTimeout(() => done(DEMO_SERVER[fn](p)), 100); return; }
+  google.script.run.withSuccessHandler(done).withFailureHandler(showError)[fn](p);
+}
+function searchJourney(){
+  const mrn=val('historyMrn'); if(!mrn) return showError('MRN is required.');
+  if (!IS_APPS_SCRIPT) { const res=DEMO_SERVER.searchPatientJourney(mrn); if(!res.ok) return showError(res.error); renderTable('journeyResult', res.data.timeline); return; }
+  google.script.run.withSuccessHandler(res=>{ if(!res.ok) return showError(res.error); renderTable('journeyResult', res.data.timeline); }).withFailureHandler(showError).searchPatientJourney(mrn);
+}
+function downloadCsvReport(type){
+  const params={type, filters:getFilters(), mrn:val('historyMrn'), startDate:val('reportStart'), endDate:val('reportEnd')};
+  if (!IS_APPS_SCRIPT) { const res=DEMO_SERVER.getReportData(params); if(!res.ok) return showError(res.error); downloadCsv(res.data.rows, `${type}_report_${new Date().toISOString().slice(0,10)}.csv`); return; }
+  google.script.run.withSuccessHandler(res=>{ if(!res.ok) return showError(res.error); downloadCsv(res.data.rows, `${type}_report_${new Date().toISOString().slice(0,10)}.csv`); }).withFailureHandler(showError).getReportData(params);
+}
 function openPrintReport(){ window.print(); }
 function renderTable(id, rows){ if(!rows||!rows.length){ document.getElementById(id).innerHTML='<p class="hint">No records found.</p>'; return; } const heads=Object.keys(rows[0]); document.getElementById(id).innerHTML=`<table class="table"><thead><tr>${heads.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${heads.map(h=>`<td>${esc(r[h])}</td>`).join('')}</tr>`).join('')}</tbody></table>`; }
 function downloadCsv(rows, filename){ if(!rows||!rows.length) return showError('No data to export.'); const heads=Object.keys(rows[0]); const csv=[heads.join(',')].concat(rows.map(r=>heads.map(h=>`"${String(r[h]??'').replace(/"/g,'""')}"`).join(','))).join('\n'); const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename; a.click(); URL.revokeObjectURL(a.href); }
@@ -271,6 +321,9 @@ function fmt(x){ if(!x) return ''; try{return new Date(x).toLocaleString('en-GB'
 function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',3000); }
 function showError(err){ showLoading(false); toast(typeof err==='string'?err:(err.message||'Unexpected error')); }
 function showLoading(show){ document.getElementById('loading').classList.toggle('hidden',!show); }
+
+// Emergency safeguard: never leave the overlay visible on static hosting.
+setTimeout(() => { try { if (!IS_APPS_SCRIPT) showLoading(false); } catch(e){} }, 800);
 </script>
 
 </body>
